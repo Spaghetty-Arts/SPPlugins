@@ -81,7 +81,7 @@ https://bit.ly/3vLVOHE (RPG Maker Foruns on Internet Archive)
 
 
 (function () {
-    var parameters = PluginManager.parameters('!SPA_CAMapGenerator');
+    var parameters = PluginManager.parameters('!SPA_CAMapGenerator3');
 
     var mapIDs = parameters['Map IDs'];
     var aliveLimit = Number(parameters['Alive Limit']);
@@ -101,7 +101,7 @@ https://bit.ly/3vLVOHE (RPG Maker Foruns on Internet Archive)
 
     var tilesArr = [];
     var transferCompleted = false;
-    var hereWeGoAgain = false;
+
 
 
     var receivedPluginCommands = Game_Interpreter.prototype.pluginCommand;
@@ -132,7 +132,7 @@ https://bit.ly/3vLVOHE (RPG Maker Foruns on Internet Archive)
         oldGamePlayer_performTransfer.call(this);
     };
 
-    function createMap() {
+    function createMap(){
         tilesArr = initializeTilesArray();
         RandomiseMap(tilesArr, randomness);
         tilesArr = runCellularAutomata(numberOfIterations, tilesArr, aliveLimit, deadLimit);
@@ -181,7 +181,7 @@ https://bit.ly/3vLVOHE (RPG Maker Foruns on Internet Archive)
         var randomX = getRandomInt(0, map.length);
         var randomY = getRandomInt(0, map[0].length);
 
-        var numberOfTilesToPlace = Math.floor(numberOfLandTilesInMap / 5);
+        var numberOfTilesToPlace = Math.floor(numberOfLandTilesInMap/5);
 
         while (numberOfTilesToPlace > 0) {
             if (map[randomX][randomY] = mainTileID) {
@@ -374,6 +374,5 @@ https://bit.ly/3vLVOHE (RPG Maker Foruns on Internet Archive)
     function placeTile(xCoordinate, yCoordinate, tileID) {
         $dataMap.data[calcIndex($dataMap, xCoordinate, yCoordinate, 0)] = tileID;
     }
-
 
 })();
